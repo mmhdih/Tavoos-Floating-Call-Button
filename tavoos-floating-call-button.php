@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Tavoos Floating Call Button
- * Plugin URI:        https://github.com/mmhdih/Floating-Call-Button
+ * Plugin URI:        https://tavoosweb.ir/free-wordpress-plugins/
  * Description:       Adds a floating contact button to all or selected pages. Clicking it opens your contact channels: phone, WhatsApp, Telegram, Instagram, email and more.
  * Version:           1.3.0
  * Requires at least: 5.6
