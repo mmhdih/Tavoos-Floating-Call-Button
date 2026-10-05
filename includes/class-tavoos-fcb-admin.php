@@ -600,7 +600,7 @@ class Tavoos_FCB_Admin {
 							$modes = array(
 								'all'     => __( 'All pages', 'tavoos-floating-call-button' ),
 								'include' => __( 'Only selected pages', 'tavoos-floating-call-button' ),
-								'exclude' => __( 'All pages except the selected ones', 'tavoos-floating-call-button' ),
+								'exclude' => __( 'All pages except the selected ones', 'tavoos-floating-call-button' ), // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude -- Display mode key, not a query argument.
 							);
 							foreach ( $modes as $key => $label ) :
 								?>
