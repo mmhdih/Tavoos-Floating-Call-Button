@@ -29,10 +29,13 @@ jobs:
           ref: ${{ github.sha }}
           persist-credentials: false
       - name: Ensure the official SVN client is present
+        timeout-minutes: 3
         run: |
           if ! command -v svn >/dev/null; then
-            sudo apt-get update -y
-            sudo apt-get install -y subversion
+            if ! sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y subversion; then
+              sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+              sudo apt-get -o Acquire::Retries=1 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y subversion
+            fi
           fi
       - name: Read current SVN and stage a strictly scoped dry-run without credentials
         id: prepare
