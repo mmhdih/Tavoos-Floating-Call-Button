@@ -141,12 +141,16 @@ def prepare(state):
     publish = req['publish']
     if os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch':
         publish = os.environ.get('LISTING_MANUAL_PUBLISH') == 'true'
+    verify_only = req.get('verify_only', False)
+    assert type(verify_only) is bool
+    assert not (publish and verify_only), 'Verification-only requests cannot publish'
     if publish:
         workflow = (ROOT / '.github/workflows/wordpress-listing.yml').read_text()
         assert re.search(r'^  cancel-in-progress: false$', workflow, re.M), 'Restore non-cancelling concurrency before publication'
     if os.environ.get('GITHUB_OUTPUT'):
         with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
             f.write(f'publish={str(publish).lower()}\n')
+            f.write(f'verify_only={str(verify_only).lower()}\n')
     print('Prepared publication:', publish, '(false means credential-free dry-run only)')
 
 
