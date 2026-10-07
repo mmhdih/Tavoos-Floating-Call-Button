@@ -1,0 +1,29 @@
+{
+  "slug": "tavoos-floating-call-button",
+  "version": "1.3.1",
+  "publish": false,
+  "readme_sha256": "9ec693066e3da745c0a5e343fa200af31613d3fe2c81c4242e181410753a7d56",
+  "assets": {
+    "banner-1544x500.png": "fe63e10e9d2c041698b01b96447e4857df8fdb721c7248237d2522db4856f875",
+    "banner-772x250.png": "0dd33ab1c2a9aa18c07a2f019f1dad24c0f5eb2822143a979fc6d41abba70b49",
+    "icon-128x128.png": "3257244f1be428acb276d459e919dfd80289d6526d3fe7008357dae0fb833247",
+    "icon-256x256.png": "c5b11bd3f3fa18c6d6362c72aa8172811d04af36d17e7e086bd789ffeabd2e53",
+    "screenshot-1-fa_IR.png": "053211e278601032639079e7eaf893522fa2ff8e2ae4217cb6131f906ddcc449",
+    "screenshot-1.png": "56c6a36618e22d1af26bba1dc7807bf25acdd35fc48d7cd65fe8a86c2c2cde01",
+    "screenshot-10.png": "68345c017f6c69ac333426e1fd360b31c758e9acc2e78d373fdb5cb9d64eeae9",
+    "screenshot-11.png": "44977d88575ffaf6d81b2a621ffc231f97e8ea0c1e858fd79f10ffebc1001931",
+    "screenshot-12.png": "e765119cd988f98107a302a1409cff2f062a2626b87f350363c94072702e04cc",
+    "screenshot-13.png": "3d005df19988e5d480fff5dcef8f3bd7c45398eff8d5750ea52a2c38740c93ea",
+    "screenshot-2-fa_IR.png": "0d7e4bf77a647af1b2ea18f6f089267b0895a1b97e5537fca3821d96fb76c211",
+    "screenshot-2.png": "a12af6090971392baa6b1d0f425928cffccf3856c817923f0239497c95fc40db",
+    "screenshot-3-fa_IR.png": "1abd18afcfcd9b7e8b7c8fb3c9e2ef602748b217d6ddc8b1ca475eefc808a5ee",
+    "screenshot-3.png": "f9d0db7d12d5f61b6887d5b5032b57c9ad5355d1abb3e3408c8721caf4abfe51",
+    "screenshot-4.png": "d6a00002326f2b56e041c918135b68097b581732acea3641af4e57031a262555",
+    "screenshot-5.png": "72dd7e3537e12865d8964ef2b99aeebbf14ac3d0532dec16076e3b049a702f48",
+    "screenshot-6-fa_IR.png": "17e1f3c0fadbfc6504a6ea88327b14ab5439ec9ffa9d2983f4d376df8114f60c",
+    "screenshot-6.png": "5771d12063d23eb3b983e5e6e5e1f55c85ee84db8edc89a880cda8eda49aad98",
+    "screenshot-7.png": "ee94db863af6c9419d9f8a46fdbd2b1ed35da5d471fcc776dd23b3c419df0533",
+    "screenshot-8.png": "b8a27bdc6839b0964c8217d963a054630b13f9e2b5d985b0fb97921434d3ae60",
+    "screenshot-9.png": "b5764633033c14645c3cd67090c6d2bb45861cd1b521d774b19afb7253c7d87f"
+  }
+}

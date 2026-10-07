@@ -1,0 +1,57 @@
+name: Update WordPress.org listing only
+
+on:
+  push:
+    branches: [docs/wordpress-listing-update]
+    paths: [.github/wordpress-listing/request.json]
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish only the reviewed readme and listing assets
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wordpress-org-tavoos-floating-call-button-1.3.1
+  cancel-in-progress: false
+
+jobs:
+  listing:
+    if: github.repository == 'mmhdih/Tavoos-Floating-Call-Button' && (github.ref == 'refs/heads/docs/wordpress-listing-update' || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/claude/trusting-thompson-ymhjs8'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Ensure the official SVN client is present
+        run: |
+          if ! command -v svn >/dev/null; then
+            sudo apt-get update -y
+            sudo apt-get install -y subversion
+          fi
+      - name: Read current SVN and stage a strictly scoped dry-run without credentials
+        id: prepare
+        env:
+          LISTING_MANUAL_PUBLISH: ${{ inputs.publish }}
+        run: python3 tools/wordpress-listing.py prepare --state "$RUNNER_TEMP/tavoos-listing"
+      - name: Publish only readme and listing assets using existing SVN secrets
+        if: steps.prepare.outputs.publish == 'true'
+        uses: 10up/action-wordpress-plugin-asset-update@2480306f6f693672726d08b5917ea114cb2825f7 # 2.2.0; deploy.sh reviewed
+        env:
+          SLUG: tavoos-floating-call-button
+          ASSETS_DIR: .github/listing-staged-assets
+          README_NAME: readme.txt
+          IGNORE_OTHER_FILES: 'true'
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+      - name: Verify actual SVN readme and assets and unchanged executable files
+        if: steps.prepare.outputs.publish == 'true'
+        run: python3 tools/wordpress-listing.py verify --state "$RUNNER_TEMP/tavoos-listing"
+      - name: Check public API, page and CDN propagation
+        if: steps.prepare.outputs.publish == 'true'
+        run: python3 tools/wordpress-listing.py public --state "$RUNNER_TEMP/tavoos-listing"
