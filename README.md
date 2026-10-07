@@ -28,11 +28,11 @@
 
 ## دانلود
 
-آخرین نسخه آماده نصب را از بخش [Releases](https://github.com/mmhdih/Floating-Call-Button/releases/latest) دانلود کنید (فایل `tavoos-floating-call-button.zip`).
+آخرین نسخه آماده نصب را از بخش [Releases](https://github.com/mmhdih/Tavoos-Floating-Call-Button/releases/latest) دانلود کنید (فایل `tavoos-floating-call-button.zip`).
 
 ## نصب
 
-1. فایل `tavoos-floating-call-button.zip` را از [Releases](https://github.com/mmhdih/Floating-Call-Button/releases/latest) دانلود کنید و از **افزونه‌ها ← افزودن ← بارگذاری افزونه** آپلود کنید (یا پوشه افزونه را در مسیر `wp-content/plugins/` قرار دهید).
+1. فایل `tavoos-floating-call-button.zip` را از [Releases](https://github.com/mmhdih/Tavoos-Floating-Call-Button/releases/latest) دانلود کنید و از **افزونه‌ها ← افزودن ← بارگذاری افزونه** آپلود کنید (یا پوشه افزونه را در مسیر `wp-content/plugins/` قرار دهید).
 2. از منوی **افزونه‌ها**، افزونه «دکمه شناور تماس» را فعال کنید.
 3. منوی جدید **دکمه تماس** در پیشخوان اضافه می‌شود.
 
@@ -196,7 +196,7 @@ tools/build-translations.py         ساخت قالب ترجمه و به‌رو�
 
 ## ارتقا از نسخه ۱.۲ و قبل‌تر
 
-از نسخه ۱.۳ نام افزونه «Tavoos Floating Call Button» و نامک آن `tavoos-floating-call-button` است، پس در پوشه جدیدی نصب می‌شود. نسخه جدید را نصب کنید، افزونه قدیمی «Floating Call Button» را غیرفعال و حذف کنید و بعد نسخه جدید را فعال کنید؛ تنظیمات شما حفظ می‌شود. تا وقتی نسخه قدیمی فعال است، نسخه جدید کاری نمی‌کند و فقط یک پیام نشان می‌دهد.
+از نسخه ۱.۳ نام افزونه «Tavoos Floating Call Button» و نامک آن `tavoos-floating-call-button` است، پس در پوشه جدیدی نصب می‌شود. نسخه جدید را نصب کنید، افزونه قدیمی «Floating Call Button» را غیرفعال کنید و سپس نسخه جدید را فعال کنید. منوی «دکمه تماس» را باز کنید و از انتقال تنظیمات مطمئن شوید؛ فقط بعد از این بررسی، نسخه قدیمی را حذف کنید. تا وقتی نسخه قدیمی فعال است، نسخه جدید کاری نمی‌کند و فقط یک پیام نشان می‌دهد.
 
 ## ارتقا از نسخه ۱.۱ و قبل‌تر
 

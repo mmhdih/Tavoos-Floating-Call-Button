@@ -1,0 +1,129 @@
+name: Publish WordPress.org 1.3.1
+
+on:
+  push:
+    branches: [claude/trusting-thompson-ymhjs8]
+    paths: [.github/releases/1.3.1.json]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Validate and stage only, without creating a tag or publishing
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wordpress-org-tavoos-floating-call-button-1.3.1
+  cancel-in-progress: false
+
+env:
+  SLUG: tavoos-floating-call-button
+  VERSION: '1.3.1'
+
+jobs:
+  dry-run:
+    if: github.repository == 'mmhdih/Tavoos-Floating-Call-Button' && github.ref == 'refs/heads/claude/trusting-thompson-ymhjs8'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the triggering commit
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Run PHP regressions, syntax and HTTP checks without publishing credentials
+        run: bash tools/run-wordpress-tests.sh
+      - name: Verify and build the reviewed package
+        run: python3 tools/verify-wordpress-release.py build "$RUNNER_TEMP/wordpress-build"
+      - name: Stage release without credentials or an SVN commit
+        uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2 # 2.3.0
+        with:
+          dry-run: true
+        env:
+          BUILD_DIR: ${{ runner.temp }}/wordpress-build
+          SVN_USERNAME: dry-run-placeholder
+          SVN_PASSWORD: dry-run-placeholder
+      - name: Verify the staged trunk and tag
+        run: |
+          if [ ! -f "$HOME/svn-$SLUG/tags/$VERSION/tavoos-floating-call-button.php" ]; then
+            svn update --set-depth infinity "$HOME/svn-$SLUG/tags/$VERSION"
+          fi
+          python3 tools/verify-wordpress-release.py verify "$HOME/svn-$SLUG/trunk"
+          python3 tools/verify-wordpress-release.py verify "$HOME/svn-$SLUG/tags/$VERSION"
+
+  tag:
+    needs: dry-run
+    if: github.event_name == 'push' || inputs.dry_run == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Create the immutable 1.3.1 Git tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          refs=$(gh api "repos/$GITHUB_REPOSITORY/git/matching-refs/tags/$VERSION")
+          existing=$(jq -r --arg ref "refs/tags/$VERSION" '.[] | select(.ref == $ref) | .object.sha' <<< "$refs")
+          if [ -n "$existing" ]; then
+            test "$existing" = "$SOURCE_SHA" || { echo "::error::Existing Git tag points to a different commit; refusing to move it."; exit 1; }
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" -f "ref=refs/tags/$VERSION" -f "sha=$SOURCE_SHA" --jq '.ref + " -> " + .object.sha'
+          fi
+
+  publish:
+    needs: [dry-run, tag]
+    if: github.event_name == 'push' || inputs.dry_run == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out the exact release tag
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: refs/tags/1.3.1
+          persist-credentials: false
+      - name: Verify tag identity and reviewed package
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+          python3 tools/verify-wordpress-release.py build "$RUNNER_TEMP/wordpress-build"
+      - name: Install the official SVN client
+        run: |
+          if ! command -v svn >/dev/null; then
+            sudo apt-get update -y
+            sudo apt-get install -y subversion
+          fi
+      - name: Refuse to overwrite any different existing release
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://plugins.svn.wordpress.org/$SLUG"
+          tags=$(svn list "$url/tags/")
+          if grep -Fxq "$VERSION/" <<< "$tags"; then
+            svn export "$url/tags/$VERSION" "$RUNNER_TEMP/existing-tag"
+            python3 tools/verify-wordpress-release.py verify "$RUNNER_TEMP/existing-tag"
+            svn export "$url/trunk" "$RUNNER_TEMP/existing-trunk"
+            python3 tools/verify-wordpress-release.py verify "$RUNNER_TEMP/existing-trunk"
+          else
+            test -z "$tags" || { echo "::error::Unexpected SVN tags; refusing an initial release over existing history."; exit 1; }
+            test -z "$(svn list "$url/trunk/")" || { echo "::error::SVN trunk is no longer empty; inspect it before publishing."; exit 1; }
+          fi
+      - name: Publish the reviewed release to WordPress.org
+        uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2 # 2.3.0
+        env:
+          BUILD_DIR: ${{ runner.temp }}/wordpress-build
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+      - name: Verify the committed SVN trunk and release tag
+        run: |
+          svn export "https://plugins.svn.wordpress.org/$SLUG/trunk" "$RUNNER_TEMP/published-trunk"
+          svn export "https://plugins.svn.wordpress.org/$SLUG/tags/$VERSION" "$RUNNER_TEMP/published-tag"
+          python3 tools/verify-wordpress-release.py verify "$RUNNER_TEMP/published-trunk"
+          python3 tools/verify-wordpress-release.py verify "$RUNNER_TEMP/published-tag"
+          echo "Verified WordPress.org SVN release $VERSION at Git commit $GITHUB_SHA." >> "$GITHUB_STEP_SUMMARY"

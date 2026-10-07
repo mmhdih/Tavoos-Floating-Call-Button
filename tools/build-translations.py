@@ -115,7 +115,7 @@ def write_po(path, order, entries, translations, is_pot):
     now = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M+0000')
     head = {
         'Project-Id-Version': 'Tavoos Floating Call Button ' + version(),
-        'Report-Msgid-Bugs-To': 'https://github.com/mmhdih/Floating-Call-Button/issues',
+        'Report-Msgid-Bugs-To': 'https://github.com/mmhdih/Tavoos-Floating-Call-Button/issues',
         'POT-Creation-Date': now,
         'PO-Revision-Date': 'YEAR-MO-DA HO:MI+ZONE' if is_pot else now,
         'Last-Translator': '' if is_pot else 'Mahdi Habibi <https://tavoosweb.ir/>',

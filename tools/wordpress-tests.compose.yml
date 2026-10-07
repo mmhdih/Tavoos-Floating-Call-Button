@@ -1,0 +1,34 @@
+services:
+  db:
+    image: mariadb:11.4@sha256:1292844148b311e4ed4300022a996d39083f415a963e970cf47cad1b3b18e3a6
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${TAVOOS_TEST_PASSWORD:?}
+      MARIADB_ROOT_PASSWORD: ${TAVOOS_TEST_PASSWORD:?}
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+  wordpress:
+    image: wordpress:6.9.4-php8.3-apache@sha256:5d2c212561c4b5442ebc4d98933a9cbadcf3dee8888ed3fd9ed44667c27cc905
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1::80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${TAVOOS_TEST_PASSWORD:?}
+      WORDPRESS_DB_NAME: wordpress
+      DEV_ADMIN_PASSWORD: ${TAVOOS_TEST_PASSWORD:?}
+    volumes:
+      - wordpress:/var/www/html
+      - ${TAVOOS_SOURCE:?}:/var/www/html/wp-content/plugins/tavoos-floating-call-button:ro
+volumes:
+  database:
+  wordpress:

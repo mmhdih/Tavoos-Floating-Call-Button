@@ -4,7 +4,7 @@ Tags: call button, whatsapp, telegram, floating button, contact
 Requires at least: 5.6
 Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,13 @@ Yes. For the main button and for every channel you can pick a preset icon, paste
 
 == Changelog ==
 
+= 1.3.1 =
+* Updated the Plugin URI to the Tavoos Web plugins page.
+* Clarified the display-mode field annotation for Plugin Check.
+* Fixed the upgrade instructions so legacy settings are migrated before deleting the older plugin.
+* Removing this plugin no longer deletes settings owned by an older Floating Call Button copy.
+* Preserved literal backslashes when saving settings through the WordPress Settings API.
+
 = 1.3.0 =
 * Renamed to Tavoos Floating Call Button; the slug and text domain are now `tavoos-floating-call-button`.
 * Translations now come from translate.wordpress.org; the plugin ships only the translation template.
@@ -74,8 +81,11 @@ Yes. For the main button and for every channel you can pick a preset icon, paste
 
 == Upgrade Notice ==
 
+= 1.3.1 =
+Maintenance release. When upgrading from 1.2 or earlier, deactivate the old copy, activate this plugin and verify your settings before deleting the old copy.
+
 = 1.3.0 =
-The plugin was renamed and now installs in a new folder. Install it, deactivate and delete the old "Floating Call Button" plugin, then activate this one. Your settings are kept.
+The plugin was renamed and now installs in a new folder. Install it, deactivate the old "Floating Call Button" plugin, then activate this one. Open Call Button and verify your saved settings before deleting the old copy.
 
 = 1.2.0 =
 Filters were renamed from fcb_* to tavoos_fcb_*. Update any custom code that uses them.

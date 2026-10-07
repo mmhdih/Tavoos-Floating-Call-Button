@@ -330,9 +330,10 @@ class Tavoos_FCB_Options {
 	 */
 	public static function sanitize( $input ) {
 		$d   = self::defaults();
-		$in  = is_array( $input ) ? wp_unslash( $input ) : array();
+		$in  = is_array( $input ) ? $input : array();
 		$out = array();
 
+		// The Settings API passes unslashed input to sanitize callbacks.
 		// Checkboxes.
 		foreach ( array( 'enabled', 'single_direct', 'front_page', 'show_desktop', 'show_mobile', 'pulse' ) as $key ) {
 			$out[ $key ] = empty( $in[ $key ] ) ? 0 : 1;

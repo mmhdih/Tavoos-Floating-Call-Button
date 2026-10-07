@@ -1,0 +1,20 @@
+{
+  "slug": "tavoos-floating-call-button",
+  "version": "1.3.1",
+  "tested_source_commit": "e503a3513b72b4d621d91e3d440e28a089607a4b",
+  "approved_zip_sha256": "2c87590f9b0c94bbfb69241d54f97ed45d2ca63166d8a3e2dbcfa7767de12a0f",
+  "files": {
+    "assets/css/admin.css": "7f42d59625888471e94e2047e45be77488ac86634cb41f872ce26544e2fbdfcd",
+    "assets/css/frontend.css": "63e76b729f5617182455226c2138a6349751e246a0b0dd48d68761ae93d43f69",
+    "assets/js/admin.js": "54bb0bafefecab7a0f0fb1ac2f8f4533da320c24ccf6fda54b5ecc5641789059",
+    "assets/js/frontend.js": "7e1a88bdab9a15ee95c5c2b306183e52cd0db8dcd05d86db2cffec3038d66334",
+    "includes/class-tavoos-fcb-admin.php": "eda38443ab51dc5931452d12bd725a2fb9034cae7789718c563f7d7ca8f9a1ce",
+    "includes/class-tavoos-fcb-frontend.php": "fb017d763cdc369f62c33d892c20216a4af634fb6092908de7372d2b78bdbb80",
+    "includes/class-tavoos-fcb-options.php": "e57c60dbc72151618926d9303448998b91c437393b493833170dbf627ab0ab4b",
+    "includes/icons.php": "9271a082b62061f654af98c561b6e9aac92a658f2bf8e4235aed646036bcb620",
+    "languages/tavoos-floating-call-button.pot": "a3a258de2c1f54de9467fd392b4df012d9e18afc42a8a8cccd60662532e6087c",
+    "readme.txt": "c99f9fcff4f33200e54781bdd58b7de7dfe1760250f708e93f5369af6327c74d",
+    "tavoos-floating-call-button.php": "3e22d842ec935eafaf2d0146dfd591a5d7c7d10ae59aefb7a545ddde1b29ee95",
+    "uninstall.php": "b410b3303e24b39535870f78ea9d382bf82df0cecf7e6882dfb37fee2ae39e5e"
+  }
+}

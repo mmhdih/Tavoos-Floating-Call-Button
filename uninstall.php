@@ -10,5 +10,4 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 delete_option( 'tavoos_fcb_options' );
-delete_option( 'tavoos_fcb_settings' );
-delete_option( 'fcb_settings' );
+// Legacy options belong to older plugin copies; migration removes them after copying.
