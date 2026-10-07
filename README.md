@@ -1,218 +1,59 @@
-<div dir="rtl">
+<p align="center"><img src="docs/brand/banner.png" alt="Tavoos Floating Call Button — one button, your ways to connect" width="100%"></p>
 
-# دکمه شناور تماس طاووس (Tavoos Floating Call Button)
+# Tavoos Floating Call Button · دکمه شناور تماس طاووس
 
-افزونه وردپرسی برای افزودن یک **دکمه شناور** به همه صفحات یا صفحات دلخواه سایت. با کلیک روی دکمه، منویی از **کانال‌های ارتباطی** (تماس تلفنی، واتساپ، تلگرام، اینستاگرام، ایمیل، پیامک، ایتا، بله، روبیکا، لینک دلخواه و ...) باز می‌شود.
+**A floating contact menu for WordPress. Choose your channels, style the button, and decide where it appears.**
 
-طراحی شده توسط [مهدی حبیبی | طاووس وب](https://tavoosweb.ir/)
+**یک دکمه شناور برای راه‌های ارتباطی سایت وردپرسی شما؛ با کانال‌ها، ظاهر و قواعد نمایش قابل تنظیم.**
 
-<p align="center">
-  <img src="docs/screenshots/12-front-desktop.png" alt="دکمه شناور در سایت (دسکتاپ)" width="620">
-  &nbsp;
-  <img src="docs/screenshots/13-front-mobile.png" alt="دکمه شناور در موبایل" width="200">
-</p>
+[فارسی: آموزش تصویری](docs/guide-fa.md) · [English: illustrated guide](docs/guide-en.md) · [WordPress.org](https://wordpress.org/plugins/tavoos-floating-call-button/) · [Report an issue / گزارش مشکل](https://github.com/mmhdih/Tavoos-Floating-Call-Button/issues)
 
-## امکانات
+> Documentation targets **published 1.3.1**, source `cd6789f`. This branch updates the repository guide, brand assets and review-stage translations. It does not publish a new plugin version or change the reviewed 1.3.1 package.
+>
+> این راهنما برای **نسخه منتشرشده ۱.۳.۱** است. تغییرات این شاخه مربوط به مستندات، هویت بصری مخزن و فایل‌های ترجمه در مرحله بررسی است؛ نسخه جدیدی منتشر نمی‌کند و بسته تأییدشده ۱.۳.۱ را تغییر نمی‌دهد.
 
-- نمایش در **همه صفحات**، **فقط صفحات انتخاب‌شده** یا **همه به جز صفحات انتخاب‌شده** (برگه‌ها، صفحه اصلی، نوشته‌ها، محصولات ووکامرس با شناسه)
-- **۸ موقعیت آماده** (پایین راست، پایین چپ، پایین وسط، وسط راست، وسط چپ، بالا راست، بالا چپ، بالا وسط) و **موقعیت دلخواه درصدی** (W/H) با کلیک یا کشیدن روی صفحه نمونه
-- فاصله از لبه و اندازه دکمه جداگانه برای **دسکتاپ و موبایل**
-- **آیکون دکمه قابل تغییر**: ۱۹ آیکون آماده (شامل لوگوی واتساپ، تلگرام، اینستاگرام، لینکدین، **ایتا، بله و روبیکا**)، کد SVG دلخواه یا آپلود تصویر از کتابخانه رسانه
-- **رنگ دکمه قابل تغییر**: رنگ ثابت یا گرادیان دو رنگ، رنگ آیکون و رنگ‌های منو
-- **کانال‌های ارتباطی نامحدود**: افزودن، حذف، غیرفعال کردن و **جابجایی با کشیدن**؛ هر کانال با عنوان، زیرعنوان، آیکون و رنگ مخصوص خودش
-- ساخت خودکار لینک هر کانال (مثلاً `wa.me` برای واتساپ، `t.me` برای تلگرام، `tel:` برای تماس) و پشتیبانی از **ارقام فارسی**
-- متن پیش‌فرض پیام برای واتساپ و پیامک، و موضوع پیش‌فرض برای ایمیل
-- پیش‌نمایش زنده در پیشخوان
-- حالت «یک کانال»: اگر فقط یک کانال فعال باشد، دکمه مستقیم به همان لینک می‌رود
-- راست‌چین/چپ‌چین خودکار، دسترسی‌پذیر (ARIA، بستن با Esc)، سبک و بدون jQuery در سایت؛ فایل‌ها فقط در صفحاتی که دکمه نمایش داده می‌شود بارگذاری می‌شوند
+| What you can configure | امکانات |
+| --- | --- |
+| 12 channel types; add, disable, delete and drag to reorder | ۱۲ نوع کانال؛ افزودن، غیرفعال‌سازی، حذف و جابه‌جایی با کشیدن |
+| Phone, WhatsApp, Telegram, Instagram, email, SMS, Eitaa, Bale, Rubika, LinkedIn, map and custom links | تماس، واتساپ، تلگرام، اینستاگرام، ایمیل، پیامک، ایتا، بله، روبیکا، لینکدین، نقشه و لینک دلخواه |
+| 18 selectable icons, sanitized SVG code or an image | ۱۸ آیکون قابل انتخاب، کد SVG پاک‌سازی‌شده یا تصویر |
+| Solid/gradient colors, menu colors, live admin preview | رنگ ثابت یا گرادیان، رنگ‌های منو و پیش‌نمایش زنده |
+| Eight preset positions or percentage coordinates | هشت موقعیت آماده یا مختصات درصدی |
+| Separate mobile size and offsets; configurable breakpoint | اندازه و فاصله مجزای موبایل و نقطه شکست قابل تنظیم |
+| All pages, only selected pages, or exclusions | همه صفحات، فقط صفحات انتخاب‌شده یا نمایش به‌جز صفحات انتخاب‌شده |
+| RTL/LTR, accessible button label, Escape to close, reduced-motion CSS | راست‌چین/چپ‌چین، برچسب دسترسی‌پذیری، بستن با Esc و رعایت کاهش حرکت |
 
-## دانلود
+<p align="center"><img src="docs/screenshots/1.3.1/11-desktop-en.png" alt="Real WordPress 6.9 desktop fixture with Tavoos 1.3.1 contact menu open" width="720"> <img src="docs/screenshots/1.3.1/16-mobile-fa.png" alt="منوی واقعی فارسی طاووس در نمای موبایل سایت آزمایشی وردپرس" width="240"></p>
 
-آخرین نسخه آماده نصب را از بخش [Releases](https://github.com/mmhdih/Tavoos-Floating-Call-Button/releases/latest) دانلود کنید (فایل `tavoos-floating-call-button.zip`).
+The screenshots show the actual plugin on a disposable WordPress site. Purple is a configured example; the installed plugin’s default button remains gold. Demo destinations are not live support contacts. [Screenshot provenance and test results](docs/VALIDATION.md).
 
-## نصب
+تصاویر از اجرای واقعی افزونه در یک وردپرس آزمایشی گرفته شده‌اند. بنفش تنظیم نمونه است؛ رنگ پیش‌فرض افزونه همچنان طلایی است. مقصدهای نمونه، اطلاعات تماس پشتیبانی واقعی نیستند. [جزئیات آزمون و تصاویر](docs/VALIDATION.md).
 
-1. فایل `tavoos-floating-call-button.zip` را از [Releases](https://github.com/mmhdih/Tavoos-Floating-Call-Button/releases/latest) دانلود کنید و از **افزونه‌ها ← افزودن ← بارگذاری افزونه** آپلود کنید (یا پوشه افزونه را در مسیر `wp-content/plugins/` قرار دهید).
-2. از منوی **افزونه‌ها**، افزونه «دکمه شناور تماس» را فعال کنید.
-3. منوی جدید **دکمه تماس** در پیشخوان اضافه می‌شود.
+## Install / نصب
 
-![افزونه در فهرست افزونه‌ها](docs/screenshots/01-plugins-list.png)
+1. In **Plugins → Add New**, search **Tavoos Floating Call Button**, install and activate. Or upload the installable ZIP from [WordPress.org](https://wordpress.org/plugins/tavoos-floating-call-button/).
+2. Open **Call Button** in the dashboard. Enter at least one enabled channel’s destination.
+3. Press **Save settings**, then check a public page on desktop and mobile.
 
----
+۱. در **افزونه‌ها ← افزودن**، نام **Tavoos Floating Call Button** را جست‌وجو، نصب و فعال کنید؛ یا فایل ZIP نصب را از [وردپرس](https://wordpress.org/plugins/tavoos-floating-call-button/) بارگذاری کنید.
 
-## آموزش تصویری
+۲. از منوی **دکمه تماس**، مقصد حداقل یک کانال فعال را وارد کنید.
 
-### ۱. کانال‌های ارتباطی
+۳. **ذخیره تنظیمات** را بزنید و نمایش سایت را در دسکتاپ و موبایل بررسی کنید.
 
-در تب **کانال‌های ارتباطی**، کانال‌های پیش‌فرض (تماس تلفنی، واتساپ و تلگرام) را می‌بینید. روی هر کانال کلیک کنید تا تنظیماتش باز شود:
+**Requirements / نیازمندی‌ها:** WordPress 5.6+, PHP 7.2+ (declared minimums; this documentation fixture tested WordPress 6.9 / PHP 8.3). No API keys or messaging accounts are connected in the plugin. Links open the visitor’s browser/app; the plugin does not send messages itself.
 
-- **نوع کانال**: با تغییر نوع، آیکون، رنگ و راهنمای فیلد به‌صورت خودکار تنظیم می‌شود.
-- **شماره / نام کاربری / لینک**: فقط مقدار را وارد کنید، افزونه لینک را می‌سازد (لینک کامل هم قبول می‌شود).
-- **عنوان** و **زیرعنوان**: متن‌هایی که در منو نمایش داده می‌شوند.
-- **متن پیش‌فرض پیام**: برای واتساپ و پیامک (برای ایمیل: موضوع).
-- سوئیچ **فعال** برای نمایش یا مخفی کردن موقت کانال، آیکون <kbd>☰</kbd> برای جابجایی و آیکون سطل زباله برای حذف.
+حداقل اعلام‌شده وردپرس ۵.۶ و PHP ۷.۲ است؛ محیط این راهنما با وردپرس ۶.۹ و PHP ۸.۳ آزمایش شده است. افزونه به کلید API نیاز ندارد؛ لینک را در مرورگر یا برنامه بازدیدکننده باز می‌کند و خودش پیام ارسال نمی‌کند.
 
-![تب کانال‌های ارتباطی](docs/screenshots/02-channels.png)
+## Guides and project files / راهنما و فایل‌ها
 
-> کانال‌هایی که مقدار ندارند در سایت نمایش داده نمی‌شوند.
+- [Complete English tutorial](docs/guide-en.md) / [آموزش کامل فارسی](docs/guide-fa.md): all settings, channel formats, display rules, mobile, RTL, accessibility, upgrade, uninstall and troubleshooting.
+- [Translation status / وضعیت ترجمه](translations/README.md): English source and Persian `fa_IR`; 151/151 catalog entries, with human review status stated explicitly.
+- [Editable logo and banner / لوگو و بنر قابل ویرایش](docs/brand/README.md): original SVG and PNG artwork in `#5F01AF`.
+- [Developer hooks / فیلترهای توسعه‌دهندگان](docs/developers.md) and [validation / آزمون‌ها](docs/VALIDATION.md).
 
-### ۲. افزودن کانال جدید
+**Limits:** no analytics, chat inbox, online/offline schedule, agent routing, message delivery or automatic translation of your saved content. Many channels or long labels may exceed the viewport; test the open menu on small screens. Accessibility support is not a WCAG certification.
 
-پایین لیست، نوع کانال را انتخاب کنید و روی **افزودن** بزنید:
+**محدودیت‌ها:** آمار کلیک، صندوق گفتگو، برنامه زمانی آنلاین/آفلاین، توزیع پیام بین کارشناسان، ارسال پیام و ترجمه خودکار محتوای ذخیره‌شده وجود ندارد. تعداد زیاد کانال‌ها یا متن طولانی ممکن است از صفحه بیرون بزند؛ منوی باز را در موبایل بررسی کنید. امکانات دسترسی‌پذیری به معنی گواهی انطباق WCAG نیست.
 
-![افزودن کانال](docs/screenshots/03-add-channel.png)
-
-کانال جدید با مقادیر پیش‌فرض همان نوع ساخته می‌شود و می‌توانید همه‌چیز را تغییر دهید:
-
-![تنظیمات یک کانال](docs/screenshots/04-channel-settings.png)
-
-برای کانالی که در لیست نیست (مثلاً یک شبکه اجتماعی دیگر)، نوع **لینک دلخواه** را انتخاب کنید و آیکون آن را خودتان بگذارید.
-
-#### آیکون دلخواه
-
-برای هر کانال (و دکمه اصلی) سه روش انتخاب آیکون وجود دارد:
-
-| روش | توضیح |
-|---|---|
-| آیکون آماده | انتخاب از ۱۹ آیکون، از جمله لوگوی ایتا، بله و روبیکا (لوگوی روبیکا چندرنگ است و «رنگ آیکون» روی آن اثری ندارد) |
-| کد SVG دلخواه | کد SVG را بچسبانید؛ کدهای خطرناک (اسکریپت و رویدادها) خودکار حذف می‌شوند. با `fill="currentColor"` آیکون هم‌رنگ «رنگ آیکون» می‌شود. |
-| تصویر (آپلود) | انتخاب از کتابخانه رسانه یا وارد کردن آدرس تصویر (PNG/SVG/WebP) |
-
-![آیکون SVG دلخواه](docs/screenshots/05-custom-svg.png)
-
-### ۳. ظاهر دکمه
-
-در تب **ظاهر دکمه**، آیکون دکمه اصلی، رنگ پس‌زمینه، رنگ دوم (برای گرادیان؛ خالی = رنگ ثابت)، رنگ آیکون، اندازه دکمه در دسکتاپ و موبایل و انیمیشن پالس را تنظیم کنید. پیش‌نمایش سمت چپ همزمان به‌روز می‌شود.
-
-![تب ظاهر دکمه](docs/screenshots/06-appearance.png)
-
-<p align="center"><img src="docs/screenshots/07-preview-color.png" alt="پیش‌نمایش با رنگ دلخواه" width="300"></p>
-
-در همین تب، بخش **ظاهر منوی کانال‌ها** هم برای رنگ پس‌زمینه کارت‌ها، عنوان، زیرعنوان و حاشیه وجود دارد.
-
-### ۴. موقعیت دکمه
-
-یکی از موقعیت‌های آماده را انتخاب کنید و فاصله از لبه صفحه را (جداگانه برای دسکتاپ و موبایل) به پیکسل تعیین کنید:
-
-![تب موقعیت](docs/screenshots/08-position.png)
-
-#### موقعیت دلخواه درصدی (W/H)
-
-گزینه **دلخواه (درصدی)** را بزنید، سپس روی صفحه نمونه کلیک کنید یا نقطه را بکشید. می‌توانید مقدارها را دستی هم وارد کنید:
-
-- **افقی (W)**: ۰٪ = لبه چپ، ۱۰۰٪ = لبه راست
-- **عمودی (H)**: ۰٪ = بالای صفحه، ۱۰۰٪ = پایین صفحه
-
-دکمه در هر مقداری داخل صفحه باقی می‌ماند و جهت باز شدن منو (بالا، پایین یا کنار دکمه) خودکار انتخاب می‌شود.
-
-![موقعیت دلخواه](docs/screenshots/09-position-custom.png)
-
-نتیجه در سایت (افقی ۱۵٪، عمودی ۸۰٪ با رنگ آبی):
-
-![نمونه موقعیت دلخواه در سایت](docs/screenshots/14-front-custom.png)
-
-همچنین **عرض نقطه شکست موبایل** (پیش‌فرض ۱۰۲۴ پیکسل) و **z-index** در این تب قابل تنظیم است.
-
-### ۵. نمایش در صفحات و تنظیمات عمومی
-
-در تب **نمایش و عمومی**:
-
-- **وضعیت**: روشن/خاموش کردن کل دکمه
-- **دستگاه‌ها**: نمایش در دسکتاپ و/یا موبایل
-- **یک کانال**: اگر فقط یک کانال فعال بود، دکمه مستقیم لینک شود
-- **متن دسترسی‌پذیری** و **جهت متن منو**
-
-![تنظیمات عمومی](docs/screenshots/11-general.png)
-
-در بخش **نمایش در صفحات** یکی از سه حالت را انتخاب کنید. در حالت‌های «فقط صفحات انتخاب‌شده» و «همه به جز...»، صفحه اصلی، برگه‌ها (با جستجو) و شناسه نوشته‌ها/محصولات را مشخص کنید:
-
-![نمایش در صفحات](docs/screenshots/10-display-pages.png)
-
-> شناسه هر نوشته یا محصول را در آدرس صفحه ویرایش آن (`post=123`) می‌بینید.
-
-در پایان روی **ذخیره تنظیمات** کلیک کنید.
-
----
-
-## ساخت لینک کانال‌ها
-
-| نوع | مقدار نمونه | لینک ساخته‌شده |
-|---|---|---|
-| تماس تلفنی | `+989121234567` | `tel:+989121234567` |
-| واتساپ | `989121234567` | `https://wa.me/989121234567?text=...` |
-| تلگرام | `username` | `https://t.me/username` |
-| اینستاگرام | `username` | `https://instagram.com/username` |
-| ایمیل | `info@example.com` | `mailto:info@example.com?subject=...` |
-| پیامک | `+989121234567` | `sms:+989121234567?body=...` |
-| ایتا / بله / روبیکا | `username` | `eitaa.com/…` / `ble.ir/…` / `rubika.ir/…` |
-| لینک دلخواه / نقشه / لینکدین | لینک کامل | همان لینک |
-
-اگر در هر نوعی لینک کامل (مثل `https://...` یا `tg://...`) وارد کنید، همان استفاده می‌شود.
-
-## برای توسعه‌دهندگان
-
-فیلترهای در دسترس:
-
-| فیلتر | کاربرد |
-|---|---|
-| `tavoos_fcb_should_display` | تصمیم نهایی نمایش دکمه `( bool $show, array $settings )` |
-| `tavoos_fcb_channels` | تغییر لیست کانال‌های نهایی `( array $channels, array $settings )` |
-| `tavoos_fcb_channel_url` | تغییر لینک یک کانال `( string $url, array $channel )` |
-| `tavoos_fcb_channel_types` | افزودن نوع کانال جدید |
-| `tavoos_fcb_icons` | افزودن آیکون آماده جدید (`label` و `path` در viewBox ‏24×24، یا `svg` برای آیکون چندرنگ) |
-
-نمونه: مخفی کردن دکمه در صفحه سبد خرید ووکامرس
-
-```php
-add_filter( 'tavoos_fcb_should_display', function ( $show ) {
-	return ( function_exists( 'is_cart' ) && is_cart() ) ? false : $show;
-} );
-```
-
-## ساختار فایل‌ها
-
-```
-tavoos-floating-call-button.php     فایل اصلی افزونه
-uninstall.php                       حذف تنظیمات هنگام پاک کردن افزونه
-includes/
-  icons.php                         آیکون‌های آماده و پاک‌سازی SVG
-  class-tavoos-fcb-options.php      تنظیمات پیش‌فرض، انواع کانال و پاک‌سازی ورودی
-  class-tavoos-fcb-frontend.php     نمایش دکمه در سایت
-  class-tavoos-fcb-admin.php        صفحه تنظیمات در پیشخوان
-languages/                          قالب ترجمه (.pot)
-assets/css, assets/js               استایل و اسکریپت سایت و پیشخوان
-translations/                       ترجمه فارسی (.po/.mo) برای translate.wordpress.org — داخل zip نیست
-tools/build-translations.py         ساخت قالب ترجمه و به‌روزرسانی ترجمه فارسی — داخل zip نیست
-```
-
-## ترجمه
-
-متن‌های اصلی افزونه انگلیسی هستند و ترجمه‌ها از طریق [translate.wordpress.org](https://translate.wordpress.org/) به‌صورت خودکار روی سایت‌ها نصب می‌شوند؛ یعنی در سایت‌های فارسی همه‌چیز فارسی و در سایت‌های دیگر انگلیسی نمایش داده می‌شود.
-
-- داخل افزونه فقط قالب ترجمه (`languages/tavoos-floating-call-button.pot`) قرار دارد.
-- ترجمه کامل فارسی در پوشه `translations/` مخزن است (خارج از فایل zip افزونه). بعد از تأیید افزونه در وردپرس، فایل `.po` را در translate.wordpress.org وارد کنید.
-- تا قبل از آن، اگر ترجمه فارسی را روی سایت خودتان می‌خواهید، فایل‌های `.po` و `.mo` را در مسیر `wp-content/languages/plugins/` قرار دهید.
-- بعد از تغییر متن‌ها در کد، دستور `python3 tools/build-translations.py` را اجرا کنید تا قالب ترجمه و ترجمه فارسی به‌روز شوند (ترجمه‌های قبلی حفظ می‌شوند و متن‌های ترجمه‌نشده فهرست می‌شوند).
-
-## ارتقا از نسخه ۱.۲ و قبل‌تر
-
-از نسخه ۱.۳ نام افزونه «Tavoos Floating Call Button» و نامک آن `tavoos-floating-call-button` است، پس در پوشه جدیدی نصب می‌شود. نسخه جدید را نصب کنید، افزونه قدیمی «Floating Call Button» را غیرفعال کنید و سپس نسخه جدید را فعال کنید. منوی «دکمه تماس» را باز کنید و از انتقال تنظیمات مطمئن شوید؛ فقط بعد از این بررسی، نسخه قدیمی را حذف کنید. تا وقتی نسخه قدیمی فعال است، نسخه جدید کاری نمی‌کند و فقط یک پیام نشان می‌دهد.
-
-## ارتقا از نسخه ۱.۱ و قبل‌تر
-
-از نسخه ۱.۲ پیشوند همه نام‌ها در کد `tavoos_fcb_` است. تنظیمات قبلی خودکار منتقل می‌شوند، ولی اگر در کد خودتان از فیلترهای `fcb_*` استفاده کرده‌اید، نام آن‌ها را به `tavoos_fcb_*` تغییر دهید.
-
-## نیازمندی‌ها
-
-- وردپرس ۵.۶ یا بالاتر
-- PHP ‏۷.۲ یا بالاتر
-
-## مجوز
-
-GPLv2 or later
-
----
-
-طراحی شده توسط [مهدی حبیبی | طاووس وب](https://tavoosweb.ir/)
-
-</div>
+Built by [Mahdi Habibi · Tavoos Web / مهدی حبیبی · طاووس وب](https://tavoosweb.ir/) · GPLv2 or later.

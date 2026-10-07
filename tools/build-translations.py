@@ -4,8 +4,8 @@
     python3 tools/build-translations.py
 
 - Extracts every translatable string from the plugin's PHP files (and the plugin
-  header) into languages/tavoos-floating-call-button.pot. Only this template
-  ships with the plugin; translations come from translate.wordpress.org.
+  header) into translations/tavoos-floating-call-button.pot for review. The frozen
+  languages/ template is only updated during a separately approved release.
 - Rewrites translations/tavoos-floating-call-button-fa_IR.po from the new
   template, keeping existing translations, and compiles the matching .mo.
   Those files are not part of the plugin package; import the .po on
@@ -22,7 +22,8 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = 'tavoos-floating-call-button'
 MAIN = os.path.join(ROOT, DOMAIN + '.php')
-POT = os.path.join(ROOT, 'languages', DOMAIN + '.pot')
+# Keep the reviewed 1.3.1 package frozen; stage extraction outside the release.
+POT = os.path.join(ROOT, 'translations', DOMAIN + '.pot')
 LANG = 'fa_IR'
 PO = os.path.join(ROOT, 'translations', '%s-%s.po' % (DOMAIN, LANG))
 MO = os.path.join(ROOT, 'translations', '%s-%s.mo' % (DOMAIN, LANG))
@@ -118,7 +119,7 @@ def write_po(path, order, entries, translations, is_pot):
         'Report-Msgid-Bugs-To': 'https://github.com/mmhdih/Tavoos-Floating-Call-Button/issues',
         'POT-Creation-Date': now,
         'PO-Revision-Date': 'YEAR-MO-DA HO:MI+ZONE' if is_pot else now,
-        'Last-Translator': '' if is_pot else 'Mahdi Habibi <https://tavoosweb.ir/>',
+        'Last-Translator': '' if is_pot else 'Repository contributors (automated update; human review pending)',
         'Language-Team': '' if is_pot else 'Persian (Iran)',
         'Language': '' if is_pot else LANG,
         'MIME-Version': '1.0',
@@ -180,13 +181,13 @@ def main():
     write_po(POT, order, entries, {}, True)
     head = write_po(PO, order, entries, translations, False)
     write_mo(MO, head, order, translations)
-    missing = [s for s in order if not translations.get(s) and not s.startswith('http')]
+    missing = [s for s in order if not translations.get(s) ]
     print('%d strings, %d translated -> %s' % (len(order), len(order) - len(missing), os.path.relpath(PO, ROOT)))
     if missing:
         print('Untranslated:')
         for s in missing:
             print('  ' + s)
-    return 0
+    return 1 if missing else 0
 
 
 if __name__ == '__main__':

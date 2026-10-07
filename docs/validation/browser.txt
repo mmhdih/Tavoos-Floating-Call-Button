@@ -1,0 +1,4 @@
+PASS: real browser menu toggle, aria-expanded, Escape, focus restoration; 390px mobile captured
+PASS: Persian catalog loaded in actual admin UI
+PASS: frontend RTL direction rtl
+PASS: add WhatsApp row, fill destination/message, remove with confirmation (unsaved; no navigation to contacts)
