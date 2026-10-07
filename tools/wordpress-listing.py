@@ -141,6 +141,9 @@ def prepare(state):
     publish = req['publish']
     if os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch':
         publish = os.environ.get('LISTING_MANUAL_PUBLISH') == 'true'
+    if publish:
+        workflow = (ROOT / '.github/workflows/wordpress-listing.yml').read_text()
+        assert re.search(r'^  cancel-in-progress: false$', workflow, re.M), 'Restore non-cancelling concurrency before publication'
     if os.environ.get('GITHUB_OUTPUT'):
         with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
             f.write(f'publish={str(publish).lower()}\n')
