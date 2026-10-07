@@ -1,0 +1,21 @@
+PASS: runtime version is 1.3.1
+PASS: literal backslash in accessibility label
+PASS: literal backslashes in channel title
+PASS: literal backslashes in channel subtitle
+PASS: literal backslashes in channel message
+PASS: registered Settings API preserves backslash
+PASS: registered Settings API preserves multiline message
+PASS: Persian phone digits normalize to tel URL
+PASS: WhatsApp URL preserves encoded message backslash
+PASS: empty channel does not produce a URL
+PASS: text input strips script tags
+PASS: custom SVG strips executable content
+PASS: activation migrates newest legacy settings unchanged
+PASS: migration removes legacy options only after copying
+PASS: latest legacy settings replace paused-copy snapshot
+PASS: reactivation preserves existing settings
+PASS: uninstall deletes only its own settings
+PASS: uninstall preserves 1.2 settings
+PASS: uninstall preserves 1.1 settings
+PASS: uninstall preserves unrelated option
+Completed 20 integration checks on WordPress 6.9 / PHP 8.3.33

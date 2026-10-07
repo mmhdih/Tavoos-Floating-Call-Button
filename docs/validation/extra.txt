@@ -1,0 +1,21 @@
+PASS: phone URL matches guide
+PASS: whatsapp URL matches guide
+PASS: telegram URL matches guide
+PASS: instagram URL matches guide
+PASS: email URL matches guide
+PASS: sms URL matches guide
+PASS: eitaa URL matches guide
+PASS: bale URL matches guide
+PASS: rubika URL matches guide
+PASS: linkedin URL matches guide
+PASS: location URL matches guide
+PASS: custom URL matches guide
+PASS: full URL bypasses message append
+PASS: 18 visible presets excluding close
+PASS: tavoos-floating-call-button.php syntax parsed
+PASS: uninstall.php syntax parsed
+PASS: class-tavoos-fcb-admin.php syntax parsed
+PASS: class-tavoos-fcb-frontend.php syntax parsed
+PASS: class-tavoos-fcb-options.php syntax parsed
+PASS: icons.php syntax parsed
+Completed 20 additional source and PHP checks
